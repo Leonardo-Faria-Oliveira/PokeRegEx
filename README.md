@@ -41,32 +41,32 @@ regexed = regexed!.toString().replace(/^\w{1}/, fRegexed.toLowerCase())
 ## Formata os dados vindos da requisição
 ```vs-code
 
-          let digitOneRegex = /^\d{1}/
-          let digitTwoRegex = /\d{1}$/
+let digitOneRegex = /^\d{1}/
+let digitTwoRegex = /\d{1}$/
 
-          let digitOne = digitOneRegex.exec(data.weight.toString())
-          let digitTwo = digitTwoRegex.exec(data.weight.toString())
-          setWeight(digitOne+","+digitTwo)
-         
-          let h2 = digitTwoRegex.exec(data.height.toString())
-          var h1
+let digitOne = digitOneRegex.exec(data.weight.toString())
+let digitTwo = digitTwoRegex.exec(data.weight.toString())
+setWeight(digitOne+","+digitTwo)
 
-          let test = /\d{2}/
-          if(test.test(data.height.toString())){
+let h2 = digitTwoRegex.exec(data.height.toString())
+var h1
 
-            h1 = digitOneRegex.exec(data.height.toString())
+let test = /\d{2}/
+if(test.test(data.height.toString())){
 
-          }else{
+h1 = digitOneRegex.exec(data.height.toString())
 
-            h1 = digitOneRegex.exec(data.height.toString()) === h2 ? digitOneRegex.exec(data.height.toString()) : "0" 
-         
-          }
-          setHeight(h1 + ',' + h2)
-         
-          //regex criado acima
-          let firstLetter = firstLetterRegex.exec(data.name.toString())
-          let nName = data.name.toString().replace(/^\w{1}/, firstLetter?.toString().toUpperCase())
-          setName(nName)
+}else{
+
+h1 = digitOneRegex.exec(data.height.toString()) === h2 ? digitOneRegex.exec(data.height.toString()) : "0" 
+
+}
+setHeight(h1 + ',' + h2)
+
+//regex criado acima
+let firstLetter = firstLetterRegex.exec(data.name.toString())
+let nName = data.name.toString().replace(/^\w{1}/, firstLetter?.toString().toUpperCase())
+setName(nName)
 
 ```
 
