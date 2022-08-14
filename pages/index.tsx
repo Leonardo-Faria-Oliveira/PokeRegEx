@@ -46,26 +46,28 @@ const Home: NextPage = () => {
     setIsRequestDone(false)
     setIsSendindRequest(true)
 
-    let validationPattern =  /^\w[^0-9]/i;
-
+    let validationPattern =  /^[A-Za-z][^0-9]/i;
+   
     if(validationPattern.test(search)){
 
         try{
 
           let regex = /\w{6}/
-          let regexed = regex.exec(search)!.toString() 
-  
+          let firstLetterRegex = /^\w{1}/
+          let regexed = firstLetterRegex.exec(regex.exec(search)!.toString())!.toString()
+          regexed = regexed!.replace(/^\w{1}/, regexed.toLowerCase())
+
           const pokemon = db.results.filter(pokemon => {
             
-            return pokemon.name.match(regexed)
+            return pokemon.name.match(regexed+'')
   
           })
-
+          console.log(pokemon)
           const {data} = await axios.get(pokemon[0].url)
 
           let digitOneRegex = /^\d{1}/
           let digitTwoRegex = /\d{1}$/
-          let firstLetterRegex = /^\w{1}/
+          
           
 
           let digitOne = digitOneRegex.exec(data.weight.toString())
