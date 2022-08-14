@@ -54,9 +54,10 @@ const Home: NextPage = () => {
 
           let regex = /\w{6}/
           let firstLetterRegex = /^\w{1}/
-          let regexed = firstLetterRegex.exec(regex.exec(search)!.toString())!.toString()
-          regexed = regexed!.replace(/^\w{1}/, regexed.toLowerCase())
-
+          let regexed = regex.exec(search)!.toString()
+          let fRegexed = firstLetterRegex.exec(regexed)!.toString()
+          regexed = regexed!.toString().replace(/^\w{1}/, fRegexed.toLowerCase())
+          
           const pokemon = db.results.filter(pokemon => {
             
             return pokemon.name.match(regexed+'')
