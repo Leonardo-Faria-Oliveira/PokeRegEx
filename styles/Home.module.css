@@ -1,3 +1,6 @@
+
+
+
 .container {
   padding: 0 2rem;
 }
@@ -10,7 +13,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* background-color: #0070f3; */
+   background-image: linear-gradient(to right, yellow 10%, green 20%); 
 }
+
+
 
 .footer {
   display: flex;
